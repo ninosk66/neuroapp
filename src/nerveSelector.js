@@ -7,47 +7,50 @@ function NerveSelector({ nerves }) {
   const [muscles, setMuscles] = useState([]);
   const [isClicked, setIsClicked] = useState(false)
   const handleLevel1Change = (e) => {
-      setLevel1(e.target.value);
-      setIsClicked(false)
+    setLevel1(e.target.value);
+    setIsClicked(false)
   };
 
   const handleLevel2Change = (e) => {
-      setLevel2(e.target.value);
-      setIsClicked(false)
+    setLevel2(e.target.value);
+    setIsClicked(false)
   };
 
-    const handleShowResult = () => {
-        setIsClicked(true); 
-        console.log(isClicked)
+  const handleShowResult = () => {
+    setIsClicked(true);
+    console.log(isClicked)
     // const muscleGroups = [];
     const start = nerves.findIndex((n) => n.level === level1);;
-      const end = nerves.findIndex((n) => n.level === level2);;
-      
+    const end = nerves.findIndex((n) => n.level === level2);;
+
 
     if (start === -1 || end === -1) {
       alert("Please select valid levels");
       return;
-        }
-        
-        const muscles = nerves
-        .slice(start, end + 1)
-        .flatMap((nerve) => nerve.muscles)
-        .filter((muscle) => muscle !== "None");
-  
-      setMuscles(muscles);
-    };
+    }
 
-//     for (let i = start; i <= end; i++) {
-//       nerves[i].muscles.forEach((muscle) => {
-//         if (!muscleGroups.includes(muscle)) {
-//           muscleGroups.push(muscle);
-//         }
-//       });
-//     }
+    const muscles = nerves
+      .slice(start, end + 1)
+      .flatMap((nerve) => nerve.muscles)
+      .filter((muscle) => muscle !== "None");
 
-//     setMuscles(muscleGroups);
-//   };
+    setMuscles(muscles);
+    if (muscles.length === 0) {
+      alert("No muscles found")
+    }
+  };
 
+  //     for (let i = start; i <= end; i++) {
+  //       nerves[i].muscles.forEach((muscle) => {
+  //         if (!muscleGroups.includes(muscle)) {
+  //           muscleGroups.push(muscle);
+  //         }
+  //       });
+  //     }
+
+  //     setMuscles(muscleGroups);
+  //   };
+  console.log({ muscles });
   return (
     <div className="container">
       <h2>Nerve Selector</h2>
@@ -78,18 +81,16 @@ function NerveSelector({ nerves }) {
           Show Result
         </button>
       </div>
-      {muscles.length > 0 && (
-        <div className="result-container">
-          <h3>Result:</h3>
-          <ul>
-            {muscles.map((muscle) => (
-                <li
-                    // className={isClicked ? "list-item-show" : 'list-item'} 
-                    key={muscle}>{muscle}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className={isClicked ? "list-item show" : "list-item"}>
+        <h3>Result:</h3>
+        <ul>
+          {muscles.map((muscle) => (
+            <li
+              // className={isClicked ? "list-item-show" : 'list-item'} 
+              key={muscle}>{muscle}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
