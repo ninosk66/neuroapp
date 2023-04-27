@@ -13,13 +13,12 @@ function NerveSelector({ nerves }) {
 
   const handleLevel2Change = (e) => {
     setLevel2(e.target.value);
-    setIsClicked(false);
+    setIsClicked(false)
   };
 
   const handleShowResult = () => {
     setIsClicked(true);
     console.log(isClicked);
-    // const muscleGroups = [];
     const start = nerves.findIndex((n) => n.level === level1);
     const end = nerves.findIndex((n) => n.level === level2);
 
@@ -34,19 +33,13 @@ function NerveSelector({ nerves }) {
       .filter((muscle) => muscle !== "None");
 
     setMuscles(muscles);
+    if (muscles.length === 0) {
+      alert("No muscles found")
+    }
   };
 
-  //     for (let i = start; i <= end; i++) {
-  //       nerves[i].muscles.forEach((muscle) => {
-  //         if (!muscleGroups.includes(muscle)) {
-  //           muscleGroups.push(muscle);
-  //         }
-  //       });
-  //     }
 
-  //     setMuscles(muscleGroups);
-  //   };
-
+  console.log({ muscles });
   return (
     <div className='container'>
       <h2>Nerve Selector</h2>
@@ -77,21 +70,16 @@ function NerveSelector({ nerves }) {
           Show Result
         </button>
       </div>
-      {muscles.length > 0 && (
-        <div className='result-container'>
-          <h3>Result:</h3>
-          <ul>
-            {muscles.map((muscle) => (
-              <li
-                className={isClicked ? "list-item-show" : "list-item"}
-                key={muscle}
-              >
-                {muscle}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className={isClicked ? "list-item show" : "list-item"}>
+        <h3>Result:</h3>
+        <ul>
+          {muscles.map((muscle) => (
+            <li
+             
+              key={muscle}>{muscle}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
