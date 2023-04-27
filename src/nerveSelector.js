@@ -29,8 +29,7 @@ function NerveSelector({ nerves }) {
 
     const muscles = nerves
       .slice(start, end + 1)
-      .flatMap((nerve) => nerve.muscles)
-      .filter((muscle) => muscle !== "None");
+      .flatMap((nerve) => nerve.muscles);
 
     setMuscles(muscles);
     if (muscles.length === 0) {
