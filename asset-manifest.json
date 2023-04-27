@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.d34cfb7a.css",
-    "main.js": "/static/js/main.ba7f3972.js",
-    "static/js/787.aa0a2a75.chunk.js": "/static/js/787.aa0a2a75.chunk.js",
-    "index.html": "/index.html",
-    "main.d34cfb7a.css.map": "/static/css/main.d34cfb7a.css.map",
-    "main.ba7f3972.js.map": "/static/js/main.ba7f3972.js.map",
-    "787.aa0a2a75.chunk.js.map": "/static/js/787.aa0a2a75.chunk.js.map"
+    "main.css": "/neuroapp/static/css/main.d34cfb7a.css",
+    "main.js": "/neuroapp/static/js/main.36c02272.js",
+    "static/js/787.aa0a2a75.chunk.js": "/neuroapp/static/js/787.aa0a2a75.chunk.js",
+    "index.html": "/neuroapp/index.html",
+    "main.d34cfb7a.css.map": "/neuroapp/static/css/main.d34cfb7a.css.map",
+    "main.36c02272.js.map": "/neuroapp/static/js/main.36c02272.js.map",
+    "787.aa0a2a75.chunk.js.map": "/neuroapp/static/js/787.aa0a2a75.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d34cfb7a.css",
-    "static/js/main.ba7f3972.js"
+    "static/js/main.36c02272.js"
   ]
 }
