@@ -42,7 +42,7 @@ function NerveSelector({ nerves }) {
   console.log({ muscles });
   return (
     <div className='container'>
-      <h2>Nerve Selector</h2>
+      <h2>Select your case levels: </h2>
       <div className='select-container'>
         <label htmlFor='level1'>Select Level 1:</label>
         <select id='level1' value={level1} onChange={handleLevel1Change}>
